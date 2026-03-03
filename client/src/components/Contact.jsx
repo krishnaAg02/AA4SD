@@ -129,7 +129,7 @@ const Contact = () => {
             Contact Info
           </h3>
 
-          <p className="dark:text-gray-300">Email: info@aa4sd.org</p>
+          <p className="dark:text-gray-300">Email: contact.aa4sd@gmail.com</p>
 
           <div className="mt-14 rounded-xl overflow-hidden">
             <iframe

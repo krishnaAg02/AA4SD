@@ -1,6 +1,14 @@
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
+  // smooth scrolling helper (same as Navbar)
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <footer className="bg-gradient-to-r from-blue-900 to-blue-700 text-white pt-16 pb-8">
 
@@ -21,11 +29,21 @@ const Footer = () => {
         <div>
           <h3 className="font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-2 text-gray-200 text-sm">
-            <li className="hover:text-white cursor-pointer">Home</li>
-            <li className="hover:text-white cursor-pointer">About</li>
-            <li className="hover:text-white cursor-pointer">Membership</li>
-            <li className="hover:text-white cursor-pointer">Events</li>
-            <li className="hover:text-white cursor-pointer">Contact</li>
+            {[
+              { name: "Home", id: "home" },
+              { name: "About", id: "about" },
+              { name: "Membership", id: "membership" },
+              { name: "Events", id: "events" },
+              { name: "Contact", id: "contact" },
+            ].map((link) => (
+              <li
+                key={link.id}
+                onClick={() => scrollToSection(link.id)}
+                className="hover:text-white cursor-pointer"
+              >
+                {link.name}
+              </li>
+            ))}
           </ul>
         </div>
 
